@@ -1,0 +1,282 @@
+/* ==========================================================================
+   SISTEMA DE DESIGN SYSTEMS (DESIGN TOKENS & VARIÁVEIS PRO)
+   ========================================================================== */
+:root {
+    --bg-app: #f1f5f9;
+    --bg-surface: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --primary-brand: #183C63;
+    --primary-hover: #1e4b7a;
+    
+    --tech-accent: #3b82f6;
+    --psych-accent: #ec4899;
+    
+    --radius-main: 16px;
+    --radius-badge: 8px;
+    --shadow-pro: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -4px rgba(15, 23, 42, 0.05);
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tokens de Escopo do Tema Escuro (Dark Mode) */
+[data-theme="dark"] {
+    --bg-app: #0f172a;
+    --bg-surface: #1e293b;
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --primary-brand: #38bdf8;
+    --primary-hover: #7dd3fc;
+}
+
+/* ==========================================================================
+   ESTRUTURAÇÃO GLOBAL DO PROJETO
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Link de Acessibilidade */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    background-color: var(--primary-brand);
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000;
+    border-radius: var(--radius-badge);
+    transition: top 0.2s ease;
+}
+.skip-link:focus { top: 20px; }
+
+/* ==========================================================================
+   NAVBAR (SISTEMA DE MENU SUPERIOR)
+   ========================================================================== */
+.navbar {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo-icon { width: 24px; height: 24px; color: var(--primary-brand); }
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.btn-icon:hover { background-color: var(--border-color); }
+.sun-icon { width: 20px; height: 20px; }
+
+/* ==========================================================================
+   HERO / CABEÇALHO DO BLOG
+   ========================================================================== */
+.hero-header {
+    background-color: #0f172a;
+    background-image: radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.8) 0, transparent 50%), radial-gradient(at 50% 0%, rgba(24, 60, 99, 0.4) 0, transparent 50%);
+    color: #ffffff;
+    padding: 64px 0;
+    text-align: center;
+    border-bottom: 4px solid var(--primary-brand);
+}
+
+.hero-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #38bdf8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-content h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 12px 0;
+}
+
+.hero-content p {
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   FEED DE COMPONENTES DE ARTIGO (FLEXBOX MODERNO CORRIGIDO)
+   ========================================================================== */
+.feed-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Garante o empilhamento vertical correto dos artigos */
+}
+
+/* Configuração do Card Base */
+.post-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-main);
+    box-shadow: var(--shadow-pro);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Mobile-First: Elementos empilhados verticalmente */
+    transition: var(--transition);
+}
+
+/* Correção de Layout lado-a-lado usando Flexbox Avançado para Telas Maiores */
+@media (min-width: 680px) {
+    .post-card {
+        flex-direction: row; /* Imagem à esquerda, texto à direita de forma fluida */
+    }
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Configurações Dinâmicas baseadas nas Categorias (Design Inteligente) */
+.post-card[data-category="tech"] .category-tag { background-color: var(--tech-accent); color: white;}
+.post-card[data-category="psychology"] .category-tag { background-color: var(--psych-accent); color: white;}
+
+/* Banner e Mídia do Artigo */
+.post-banner {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.post-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+@media (min-width: 680px) {
+    .post-banner { width: 320px; flex-shrink: 0; }
+    .post-img { height: 100%; }
+}
+
+.category-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-badge);
+    text-transform: uppercase;
+}
+
+/* Corpo de Conteúdo do Post */
+.post-body {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.post-body h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+/* Bloco Meta do Autor */
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.author-name { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+.post-meta time { font-size: 0.8rem; color: var(--text-secondary); }
+
+.post-text {
+    font-size: 0.975rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   ARQUITETURA DE REAÇÕES ISOLADAS (BOTÕES DINÂMICOS)
+   ========================================================================== */
+.post-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.interaction-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.reaction-trigger {
+    font-family: inherit;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    font-size: 0.9
