@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLabs | Feed Interativo Avançado</title>
+    <meta name="description" content="Módulo Avançado de Engenharia de Componentes e Gerenciamento de Estados Locais.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#main-feed" class="skip-link">Pular para o conteúdo principal</a>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>DevLabs<strong>.io</strong></span>
+            </div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Alternar tema visual">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-header">
+        <div class="container hero-content">
+            <span class="hero-badge">Avançado — Unidade 08</span>
+            <h1>Engenharia de Layouts e Estados</h1>
+            <p>Mastering de Semântica com a tag <code>&lt;article&gt;</code>, Arquitetura de Fluxo Flexbox e Lógica Booleana de Reações.</p>
+        </div>
+    </header>
+
+    <main id="main-feed" class="container feed-wrapper">
+        
+        <article class="post-card" data-category="tech">
+            <div class="post-banner">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&h=250" alt="Interface digital azul com dados em tela." class="post-img">
+                <span class="category-tag">Tecnologia</span>
+            </div>
+            <div class="post-body">
+                <h2>Explorando o CSS Box Model e a Mágica do Isolamento Elástico</h2>
+                <div class="post-meta">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80" alt="Foto Marcelo" class="author-avatar">
+                    <div>
+                        <p class="author-name">Marcelo Paludetto</p>
+                        <time datetime="2026-06-26">26 de Junho de 2026</time>
+                    </div>
+                </div>
+                <p class="post-text">Boas-vindas ao ecossistema! Separar componentes usando a tag <code>&lt;article&gt;</code> garante que cada publicação mantenha sua independência semântica, facilitando a leitura de robôs de SEO e permitindo que o Flexbox organize as caixas sem quebras de layout indesejadas.</p>
+                <div class="post-footer">
+                    <div class="interaction-buttons">
+                        <button class="reaction-trigger" data-reaction="love" aria-label="Curtir com coração">
+                            <span class="emoji">❤️</span> <span class="counter">0</span>
+                        </button>
+                        <button class="reaction-trigger" data-reaction="like" aria-label="Curtir com joinha">
+                            <span class="emoji">👍</span> <span class="counter">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="post-card" data-category="psychology">
+            <div class="post-banner">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&h=250" alt="Linhas digitais abstratas representando conexões neurais." class="post-img">
+                <span class="category-tag">Mente & Saúde</span>
+            </div>
+            <div class="post-body">
+                <h2>Gatilhos de Recompensa: Como o Contador de Likes Impacta a Autoestima</h2>
+                <div class="post-meta">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80" alt="Foto Analista" class="author-avatar">
+                    <div>
+                        <p class="author-name">Dr. Arnaldo Ribeiro</p>
+                        <time datetime="2026-06-25">25 de Junho de 2026</time>
+                    </div>
+                </div>
+                <p class="post-text">A expectativa gerada ao postar conteúdos nas redes sociais aciona fluxos de dopamina no cérebro humano. Criar limitadores de curtidas via código simula restrições saudáveis aplicadas por plataformas modernas para mitigar dinâmicas de cliques obsessivos.</p>
+                <div class="post-footer">
+                    <div class="interaction-buttons">
+                        <button class="reaction-trigger" data-reaction="love" aria-label="Curtir com coração">
+                            <span class="emoji">❤️</span> <span class="counter">0</span>
+                        </button>
+                        <button class="reaction-trigger" data-reaction="like" aria-label="Curtir com joinha">
+                            <span class="emoji">👍</span> <span class="counter">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="app-footer">
+        <div class="container footer-grid">
+            <p>&copy; 2026 DevLabs — Plataforma de Engenharia Avançada. Licenciado sob as diretrizes de código livre open-source.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
